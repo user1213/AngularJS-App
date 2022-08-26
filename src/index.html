@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+    <body ng-app="app">
+        <div class="content" ng-controller="PhotoControl">
+            <div class="form">
+                <input type="text" placeholder="Search..." ng-model="searchTxt" ng-keydown="search($event)"/>
+                <p></p>
+                {{filtered.length}} / {{list.length}}
+                <p></p>
+                <input type="button" ng-click="ascending()" value="Asc"></input>&nbsp;
+                <input type="button" ng-click="descending()" value="Desc"></input>
+            </div>
+            <div class="listing">
+                <div ng-repeat="item in filtered">
+                    <figure>
+                        <img src={{item.url}} width="150" height="150" alt={{item.title}} />
+                        <figcaption>{{item.id}}:   {{item.title}}</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.angularjs.org/1.8.2/angular.js"></script>
+    <script src="js/script.js"></script>
+</html>
